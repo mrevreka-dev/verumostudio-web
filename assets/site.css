@@ -49,8 +49,8 @@ code{font-size:.9em;background:var(--ink-2);padding:2px 6px;border-radius:6px}
 
 /* ---------- home ---------- */
 .home main{padding:0}
-.home header.top{background:var(--stage);color:var(--ink);transition:background-color .7s ease}
-.home header.top .brand svg rect{stroke:var(--ink)}
+.home header.top,.tinted header.top{background:var(--stage);color:var(--ink);transition:background-color .7s ease}
+
 .stage{background:var(--stage);color:var(--ink);transition:background-color .7s ease;padding:24px 0 72px;overflow:hidden}
 .stage .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center}
 .stage h1{font-size:clamp(2.6rem,5.2vw,5rem);line-height:.9;letter-spacing:-.055em;margin:0 0 28px}
@@ -114,7 +114,8 @@ code{font-size:.9em;background:var(--ink-2);padding:2px 6px;border-radius:6px}
 .reel span{display:block;font-size:.85rem;color:var(--muted);margin-top:8px;line-height:1.35}
 .episodes{list-style:none;margin:0;padding:0;counter-reset:ep}
 .episodes li{counter-increment:ep;display:grid;grid-template-columns:3.2rem 1fr;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;letter-spacing:-.015em;margin:0}
-.episodes li::before{content:counter(ep);color:var(--ai);font-weight:700}
+.episodes li::before{content:counter(ep);color:var(--num,var(--ai));font-weight:700}
+.episodes.c-pg{--num:var(--pitch)}
 .chart{margin:0}
 .chart img{display:block;width:100%;border-radius:20px;border:1px solid var(--line)}
 .chart figcaption{font-size:.88rem;color:var(--muted);margin-top:10px}
@@ -136,7 +137,46 @@ code{font-size:.9em;background:var(--ink-2);padding:2px 6px;border-radius:6px}
 .contact dl{display:grid;grid-template-columns:auto 1fr;gap:8px 24px;margin:40px 0 24px;font-size:1.05rem}
 .contact dt{color:var(--muted)} .contact dd{margin:0}
 
+/* channel pages */
+.tinted main{padding:0}
+.chan-hero{padding:40px 0 88px}
+.chan-hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+.chan-hero h1{font-size:clamp(3rem,9vw,8rem);line-height:.88;letter-spacing:-.06em;margin:0 0 14px}
+.chan-hero .sub{font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:600;letter-spacing:-.02em;margin:0 0 24px}
+.chan-hero .mark svg{display:block;width:100%;max-width:380px;margin-left:auto;border-radius:30%;background:var(--ink)}
+.chan-hero .mark svg[viewBox="0 0 800 800"]{background:var(--ink)}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pills a{background:var(--ink);color:var(--paper);text-decoration:none;font-weight:600;padding:13px 24px;border-radius:999px}
+.pills a:hover{color:var(--stage)}
+.band{padding:88px 0;border-top:1px solid var(--line)}
+.band:first-of-type{border-top:0}
+.band h2{font-size:clamp(2rem,4.4vw,3.2rem);letter-spacing:-.045em;margin:0 0 14px}
+.sublead{color:var(--soft);font-size:1.15rem;max-width:34rem;margin-bottom:36px}
+.fine{color:var(--muted);font-size:.92rem;max-width:44rem;margin:32px 0 0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.duo p{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.45;color:var(--soft);max-width:32rem}
+.c-moko{color:var(--moko)} .c-pim{color:var(--pim)}
+.duo h2{font-size:clamp(3rem,7vw,5.6rem)}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.trio h3{font-size:1.6rem;letter-spacing:-.03em;color:var(--ai);margin:0 0 8px}
+.trio p{color:var(--soft);margin:0}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.reel.wide span{font-size:.95rem;color:var(--soft)}
+.chart.big figcaption{font-size:.95rem}
+
+/* text pages */
+.doc .wrap > *{max-width:46rem}
+.doc .wrap > .table-scroll{max-width:none}
+.doc h1{font-size:clamp(2.8rem,8vw,6.4rem);line-height:.9;letter-spacing:-.055em;margin:0 0 28px;max-width:none}
+.doc .lead{margin-bottom:56px}
+.doc h2{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.03em;padding-top:28px;border-top:2px solid var(--paper);margin:56px 0 18px}
+.doc li{margin-bottom:.7em}
+.doc table th[scope=row]{width:30%}
+
 @media (max-width:860px){
+  .chan-hero .mark svg{max-width:200px;margin:0}
+  .duo,.trio,.split{grid-template-columns:1fr;gap:36px}
+  .band{padding:64px 0}
   .stage .wrap,.show{grid-template-columns:1fr;gap:40px}
   .tv{justify-self:center}
   .rules li{grid-template-columns:1fr}
